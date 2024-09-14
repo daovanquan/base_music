@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <application>
+    <service
+        android:name=".PlaybackService"
+        android:foregroundServiceType="mediaPlayback"
+        android:exported="true"
+        android:enabled="true"
+        tools:ignore="ExportedService,ForegroundServicePermission">
+        <intent-filter>
+            <action android:name="androidx.media3.session.MediaSessionService"/>
+            <action android:name="android.media.browse.MediaBrowserService"/>
+        </intent-filter>
+    </service>
+
+        <receiver
+            android:name=".receiver.BootCompleteReceiver"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

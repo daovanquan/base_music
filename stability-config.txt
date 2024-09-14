@@ -1,0 +1,6 @@
+kotlin.collections.*
+com.marusys.auto.music.model.**
+com.marusys.auto.music.ui.model.**
+com.marusys.auto.music.store.model.song.*
+com.marusys.auto.music.store.model.playlist.*
+com.marusys.auto.music.store.model.lyrics.*
